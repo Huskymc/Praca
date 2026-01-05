@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Pracowniczy - Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; }
+        .card { border-radius: 15px; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .status-tymczasowy { color: #856404; background-color: #fff3cd; border: 1px solid #ffeeba; }
+        .status-chorobowe { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
+        .schedule-time { font-weight: bold; color: #0d6efd; }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <header class="pb-4 border-bottom mb-4">
+        <h2 class="display-6 font-weight-bold">Witaj, Pracowniku 👋</h2>
+    </header>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 p-4">
+                <h4 class="mb-3">📅 Twoja zmiana dzisiaj</h4>
+                <div class="alert alert-primary">
+                    <span class="schedule-time">08:00 - 16:00</span><br>
+                    <small>Stanowisko: Obsługa klienta</small>
+                </div>
+                <hr>
+                <h6>Przerwy / Nieobecności:</h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Chorobowe krótkie
+                        <span class="badge bg-danger">11:00 - 12:00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card p-4">
+                <h4 class="mb-3">📝 Zgłoś nieobecność / Urlop</h4>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Typ wniosku</label>
+                            <select class="form-select">
+                                <option>Chorobowe krótkie (godzinowe)</option>
+                                <option>Urlop tymczasowy (dniowy)</option>
+                                <option>Wyjście prywatne</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Od godziny</label>
+                            <input type="time" class="form-control" value="11:00">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Do godziny</label>
+                            <input type="time" class="form-control" value="12:00">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Notatka (opcjonalnie)</label>
+                            <textarea class="form-control" rows="2" placeholder="Np. wizyta u stomatologa"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-100">Prześlij wniosek do akceptacji</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card mt-4 p-4">
+                <h4 class="mb-3">⏳ Twoje wnioski tymczasowe</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Typ</th>
+                                <th>Godziny</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20.05.2024</td>
+                                <td>Urlop tymczasowy</td>
+                                <td>Cały dzień</td>
+                                <td><span class="badge status-tymczasowy text-dark">Oczekuje na akceptację</span></td>
+                            </tr>
+                            <tr>
+                                <td>22.05.2024</td>
+                                <td>Chorobowe krótkie</td>
+                                <td>11:00 - 12:00</td>
+                                <td><span class="badge bg-info">Przesłano</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
